@@ -1,0 +1,29 @@
+.env
+create_venv
+tmp/
+.vscode/
+pyrightconfig.json
+tmp*.*
+*.code-workspace
+venv*/
+.gitignore
+.git/
+.editorconfig
+.dockerignore
+Dockerfile
+README.md
+screenshots/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

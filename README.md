@@ -10,11 +10,13 @@ The program uses two bots.
 
 ![log image](./screenshots/log.png)
 
-## Prerequisites
+## Ordinary usage
+
+### Prerequisites
 
 Python 3.11 is required.
 
-## Installing
+### Installing
 
 - Download the project files.
 - It is recommended to use [venv](https://docs.python.org/3/library/venv.html?highlight=venv#module-venv) for project isolation.
@@ -47,7 +49,7 @@ REVIEW_REQUEST_TIMEOUT=100
 DEBUG_MODE=True
 ```
 
-## Using the script
+### Using the script
 
 - Run:
 
@@ -57,6 +59,25 @@ python main.py
 
 - The script polls [dvmn.org/api](https://dvmn.org/api/docs/), which uses [Long polling technology](https://dvmn.org/encyclopedia/about-chatbots/long-polling/). If you have completed reviews, you will get a message from "Review bot".
 - "Review logs bot" will send messages about the "Review bot" start or errors.
+
+## Usage with Docker
+
+Prerequisites for use with Docker:
+
+- [Docker Desktop](https://docs.docker.com/desktop/) or
+- [Docker Engine](https://docs.docker.com/engine/install/)
+
+Build an image:
+
+```bash
+docker build --tag review-bot:v1 .
+```
+
+Start a container:
+
+```bash
+docker run --env-file .env --detach --name review-bot review-bot:v1
+```
 
 ## Project goals
 
