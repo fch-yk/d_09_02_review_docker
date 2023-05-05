@@ -77,7 +77,7 @@ def main():
     timestamp = None
     review_bot = None
     review_bot = telegram.Bot(token=review_bot_token)
-    logger.info('Review bot started')
+    logger.info('Review (docker) bot started')
     last_error_type = None
     while True:
         try:
@@ -90,7 +90,7 @@ def main():
             )
             response.raise_for_status()
             reviews = response.json()
-            logger.debug("The response: %s", reviews)
+            logger.debug("Review (docker) bot -> The response: %s", reviews)
             if reviews["status"] == "found":
                 for new_attempt in reviews["new_attempts"]:
                     send_review_message(review_bot, chat_id, new_attempt)
@@ -99,7 +99,11 @@ def main():
             else:
                 timestamp = reviews["timestamp_to_request"]
 
-            logger.debug("timestamp for the next request: %s", timestamp)
+            logger.debug(
+                "Review (docker) bot ->"
+                "timestamp for the next request: %s",
+                timestamp
+            )
             last_error_type = None
         except (
             requests.exceptions.ConnectionError,
